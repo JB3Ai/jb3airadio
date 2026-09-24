@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", sans-serif;
+  --font-header: "Poppins", sans-serif;
+
+  --color-brand-cyan: #00ffd1;
+  --color-brand-teal: #00828a;
+  --color-brand-dark: #06070a;
+  --color-brand-panel: #0b0d13;
+}
+
+/* Base resets & styles matching an 8pt grid system */
+body {
+  background-color: #06070a;
+  color: #d4d4d8;
+  overflow: hidden;
+}
+
+/* Precise tech aesthetic details */
+.glow-border-cyan {
+  border: 1px solid rgba(0, 255, 209, 0.25);
+  box-shadow: 0 0 12px rgba(0, 255, 209, 0.08);
+}
+
+.glow-border-cyan:focus-within {
+  border: 1px solid rgba(0, 255, 209, 0.7);
+  box-shadow: 0 0 16px rgba(0, 255, 209, 0.15);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 255, 209, 0.5);
+}
+
+/* Subtle diagnostic scanline overlay to represent a broadcast matrix */
+.scanlines {
+  position: relative;
+}
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+/* Custom Scrollbars to keep panels looking professional & sleek */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(11, 13, 19, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 130, 138, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 209, 0.4);
+}
+
+/* Micro animations - UI-lite tier */
+@keyframes signalGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.animate-signal {
+  animation: signalGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes sweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.animate-sweep {
+  animation: sweep 8s linear infinite;
+}

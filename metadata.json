@@ -1,0 +1,6 @@
+{
+  "name": "AI Talk Radio",
+  "description": "An immersive, single-screen AI-powered radio show experience that transforms custom text into an interactive audio broadcast.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
