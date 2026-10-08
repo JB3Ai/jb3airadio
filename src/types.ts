@@ -11,11 +11,17 @@ export interface ScriptSegment {
   durationSeconds: number;
 }
 
+export interface SegmentAudio {
+  /** base64 WAV payload, or null when that segment falls back to browser TTS. */
+  data: string | null;
+  mime: string;
+}
+
 export interface RadioShow {
   title: string;
   segments: ScriptSegment[];
-  /** Per-segment base64 audio payloads (index-aligned with `segments`). */
-  segmentAudio?: Array<string | null> | null;
+  /** Per-segment audio payloads (index-aligned with `segments`). */
+  segmentAudio?: Array<SegmentAudio | null> | null;
   /** MIME type reported by the TTS model (usually audio/pcm or audio/wav). */
   segmentAudioMime?: string | null;
   usingFallback?: boolean;

@@ -1,15 +1,6 @@
 # Dependencies
 node_modules/
 
-# Environment variables
-.env
+# Environment
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Build artifacts and cache
-dist/
-build/
-.vite/
-*.tsbuildinfo
+*.env.*
