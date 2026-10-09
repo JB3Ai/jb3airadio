@@ -1,4 +1,4 @@
-# JB3 Air Radio
+
 
 An AI-powered personal radio station. Drop in a web address, upload documents (TXT/MD/PDF), or push a JSON script from another app — JB3 Air Radio turns it into a multi-host podcast-style show with synchronized transcript playback.
 
