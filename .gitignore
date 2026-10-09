@@ -1,15 +1,18 @@
 # Dependencies
 node_modules/
 
-# Environment variables
+# Build / cache artifacts
+dist/
+.vite/
+
+# Vendored clone of https://github.com/NVIDIA-Riva/python-clients (reference only, not part of the app)
+python-clients/
+
+# Generated audio output
+audio.wav
+*.wav
+
+# Environment
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Build artifacts and cache
-dist/
-build/
-.vite/
-*.tsbuildinfo
+.env.*.local
