@@ -68,15 +68,19 @@ function loadRoot(): protobuf.Root {
   if (cachedRoot) return cachedRoot;
   // Parse the common proto first; then parse the TTS proto with an inline
   // resolver that returns the already-parsed common root for the import.
+  // `keepCase: true` preserves snake_case field names (e.g. sample_rate_hz).
+  // protobufjs's .d.ts lacks the (source, options, resolver) overload even
+  // though the runtime supports it (verified against protobufjs 8.8.0), so we
+  // cast the call at this site.
   const common = protobuf.parse(COMMON_SRC, { keepCase: true }).root;
-  const parsed = protobuf.parse(
+  const parsed = (protobuf.parse as any)(
     TTS_SRC,
     { keepCase: true },
-    (filename, callback) => {
-      if (filename === "riva_audio.proto") return callback(null, common as any);
+    (filename: string, callback: (e: Error | null, root: protobuf.Root | null) => void) => {
+      if (filename === "riva_audio.proto") return callback(null, common);
       return callback(new Error(`unresolved proto import: ${filename}`), null);
     }
-  );
+  ) as protobuf.IParserResult;
   cachedRoot = parsed.root;
   return cachedRoot;
 }

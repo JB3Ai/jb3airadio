@@ -1,4 +1,4 @@
-
+# JB3 Air Radio
 
 An AI-powered personal radio station. Drop in a web address, upload documents (TXT/MD/PDF), or push a JSON script from another app — JB3 Air Radio turns it into a multi-host podcast-style show with synchronized transcript playback.
 
@@ -59,6 +59,12 @@ src/
 | `GEMINI_TTS_MODEL` | `gemini-2.5-flash-preview-tts` | Multi-speaker TTS model override |
 | `DAILY_PREMIUM_LIMIT` | `10` | Premium generations per UTC day (`0` disables premium) |
 | `PORT` | `3000` | HTTP port |
+| `NVIDIA_API_KEY` | — | Optional: enables the NVIDIA Riva (Chatterbox) TTS engine via build.nvidia.com |
+| `NVIDIA_RIVA_FUNCTION_ID` | `ddacc747-...` | NCF function id for the Riva TTS endpoint |
+| `NVIDIA_RIVA_SERVER` | `grpc.nvcf.nvidia.com:443` | Riva gRPC endpoint |
+| `NVIDIA_RIVA_VOICE` | `Chatterbox-Multilingual.en-US` | Base voice name (hosts are differentiated by exaggeration) |
+
+Verify the Riva engine end-to-end with: `npx tsx riva-smoke.ts` (no-op if `NVIDIA_API_KEY` is unset).
 
 ## Scripts
 
