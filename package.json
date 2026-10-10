@@ -36,5 +36,10 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.3",
     "vitest": "^4.1.11"
+  },
+  "wrangler": {
+    "main": "dist/server.cjs",
+    "name": "jb3-air-radio",
+    "compatibility_date": "2026-10-09"
   }
 }
